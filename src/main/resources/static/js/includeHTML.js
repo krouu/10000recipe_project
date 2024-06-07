@@ -1,6 +1,7 @@
 console.clear();
 
-$(function(){
-    $("#header").load("../templates/header.html");
-    $("#footer").load("../templates/footer.html");
-})
+$(function() {
+console.log(1);
+    $("#header").load("header");
+    $("#footer").load("footer");
+});

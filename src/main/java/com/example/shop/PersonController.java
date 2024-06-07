@@ -26,6 +26,7 @@ public class PersonController {
         return "redirect:/users";
     }
 
+
     @GetMapping("/users")
     public String getPersons(Model model) {
         model.addAttribute("persons", personRepository.findAll());
