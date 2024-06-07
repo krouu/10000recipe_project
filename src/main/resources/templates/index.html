@@ -1,59 +1,169 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>만개의레시피</title>
-    <link rel="stylesheet" href="../static/css/index.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>요리를 즐겁게~ 만개의레시피</title>
+  <!-- jquery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="../static/js/includeHTML.js"></script>
+  <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+  <div id="header"></div>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <img
-          src="https://recipe1.ezmember.co.kr/img/logo4.png"
-          alt="만개의레시피"
-        />
+  <!-- BEST 요리모음 -->
+  <div class="cont_group">
+    <div class="cont_title">
+      <h3>핵꿀팁 만개의 BEST 요리모음</h3>
+      <input type = "button" value="더보기">
+    </div>
+    <div class="cont_data">
+      <input type = "button" class="left_arrows" value="◀">
+      <div class="recipe_session">
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
       </div>
-      <div class="search-bar">
-        <input type="text" placeholder="검색어를 입력하세요" />
-        <button type="submit"><i class="fas fa-search"></i></button>
+      <input type = "button" class="right_arrows" value="▶">
+    </div>
+  </div>
+
+  <!-- 한식모음 -->
+  <div class="cont_group">
+    <div class="cont_title">
+      <h3>한식모음</h3>
+      <input type = "button" value="더보기">
+    </div>
+    <div class="cont_data">
+      <input type = "button" class="left_arrows" value="◀">
+      <div class="recipe_session">
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
       </div>
-      <div class="user-icons">
-        <button class="login">
-          <img
-            src="https://recipe1.ezmember.co.kr/img/ico_user.png"
-            alt="로그인"
-          />
-        </button>
-        <button class="write">
-          <img
-            src="https://recipe1.ezmember.co.kr/img/tmn_write.png"
-            alt="글작성"
-          />
-        </button>
-        <button class="gogo">
-          <img
-            src="https://recipe1.ezmember.co.kr/img/tmn_store2.png"
-            alt="바로가기"
-          />
-        </button>
+      <input type = "button" class="right_arrows" value="▶">
+    </div>
+  </div>
+
+  <!-- 양식모음 -->
+  <div class="cont_group">
+    <div class="cont_title">
+      <h3>양식모음</h3>
+      <input type = "button" value="더보기">
+    </div>
+    <div class="cont_data">
+      <input type = "button" class="left_arrows" value="◀">
+      <div class="recipe_session">
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
       </div>
-    </header>
-    <nav>
-      <ul>
-        <li><a href="#">추천</a></li>
-        <li><a href="#">분류</a></li>
-        <li><a href="#">랭킹</a></li>
-        <li><a href="#">매거진</a></li>
-        <li>
-          <a href="#">더보기 <i class="fas fa-caret-down"></i></a>
-        </li>
-      </ul>
-    </nav>
-  </body>
+      <input type = "button" class="right_arrows" value="▶">
+    </div>
+  </div>
+
+  <!-- 일식모음 -->
+  <div class="cont_group">
+    <div class="cont_title">
+      <h3>일식모음</h3>
+      <input type = "button" value="더보기">
+    </div>
+    <div class="cont_data">
+      <input type = "button" class="left_arrows" value="◀">
+      <div class="recipe_session">
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+        <div class="recipe_box">
+          <a href="#">
+            <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
+          </a>
+          <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
+        </div>
+      </div>
+      <input type = "button" class="right_arrows" value="▶">
+    </div>
+  </div>
+
+  <div id="footer"></div>
+</body>
+
 </html>
