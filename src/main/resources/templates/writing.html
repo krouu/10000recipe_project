@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글작성</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+<header>
+    <h1>글 작성 페이지</h1>
+</header>
+<main>
+    <form action="#" th:action="@{/writing/save}" th:object="${recipes}" method="post">
+        <label for="recipeTitle">제목:</label>
+        <input type="text" id="recipeTitle" th:field="*{category}"><br>
+        <label for="category">카테고리:</label>
+        <input type="text" id="category" th:field="*{category}"><br>
+        <label for="ingredients">재료:</label>
+        <input type="text" id="ingredients" th:field="*{ingredients}"><br>
+        <label for="gastronomy">제목:</label>
+        <input type="text" id="gastronomy" th:field="*{gastronomy}"><br>
+        <label for="imageURL">제목:</label>
+        <input type="text" id="imageURL" th:field="*{imageURL}"><br>
+
+
+        <button type="submit">작성하기</button>
+    </form>
+</main>
+</body>
+</html>

@@ -18,9 +18,9 @@ public class Recipes {
     @Column
     private Integer category;
 
-    @ManyToOne
-    @JoinColumn(name = "no", nullable = false)
-    private Users user;
+//    @ManyToOne
+//    @JoinColumn(name = "no", nullable = false)
+//    private Users user;
 
     @Column(length = 255)
     private String recipeTitle;
