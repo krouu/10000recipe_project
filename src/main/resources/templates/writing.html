@@ -2,30 +2,54 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글작성</title>
-    <link rel="stylesheet" href="../static/css/index.css">
+    <title>요리를 즐겁게~ 만개의레시피</title>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="/css/writing.css">
+    <script src="/js/includeHTML.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // 추가 버튼 클릭 시 요리법 입력 필드 추가
+            $("#addGastronomy").click(function(){
+                $("#gastronomies").append('<input type="text" class="gastronomy-input" name="gastronomy" th:field="*{gastronomies}" />');
+            });
+        });
+    </script>
 </head>
 <body>
-<header>
-    <h1>글 작성 페이지</h1>
-</header>
-<main>
-    <form action="#" th:action="@{/writing/save}" th:object="${recipes}" method="post">
+
+<div id="header">요리를 즐겁게~ 만개의레시피</div>
+
+<form action="#" th:action="@{/writing/save}" th:object="${recipes}" method="post" enctype="multipart/form-data">
+    <div>
         <label for="recipeTitle">제목:</label>
-        <input type="text" id="recipeTitle" th:field="*{category}"><br>
-        <label for="category">카테고리:</label>
-        <input type="text" id="category" th:field="*{category}"><br>
+        <input type="text" id="recipeTitle" th:field="*{recipeTitle}" />
+    </div>
+    <div>
         <label for="ingredients">재료:</label>
-        <input type="text" id="ingredients" th:field="*{ingredients}"><br>
-        <label for="gastronomy">제목:</label>
-        <input type="text" id="gastronomy" th:field="*{gastronomy}"><br>
-        <label for="imageURL">제목:</label>
-        <input type="text" id="imageURL" th:field="*{imageURL}"><br>
+        <input type="text" id="ingredients" th:field="*{ingredients}" />
+    </div>
+    <div id="gastronomies">
+        <label for="gastronomy">요리법:</label>
+        <input type="text" class="gastronomy-input" id="gastronomy" name="gastronomy" th:field="*{gastronomy}" />
+    </div>
 
+    <div>
+        <button type="button" id="addGastronomy">요리법 추가</button>
+    </div>
+    <div>
+        <label for="imageFile">이미지:</label>
+        <input type="file" id="imageFile" name="imageFile" />
+    </div>
 
-        <button type="submit">작성하기</button>
-    </form>
-</main>
+    <div>
+        <button type="submit">저장</button>
+    </div>
+</form>
+
+<div id="footer"></div>
+
 </body>
 </html>

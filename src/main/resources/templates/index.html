@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>요리를 즐겁게~ 만개의레시피</title>
@@ -13,158 +13,17 @@
 
 <div id="header"></div>
 
-<!-- BEST 요리모음 -->
-<div class="cont_group">
-  <div class="cont_title">
-    <h3>핵꿀팁 만개의 BEST 요리모음</h3>
-    <input type = "button" value="더보기">
-  </div>
-  <div class="cont_data">
-    <input type = "button" class="left_arrows" value="◀">
-    <div class="recipe_session">
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://img-cf.kurly.com/shop/data/board/recipe/r/b415627a73dc7295">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-    </div>
-    <input type = "button" class="right_arrows" value="▶">
+<div id="recipes-container">
+  <div class="recipe" th:each="recipe : ${recipes}">
+    <img th:src="${recipe.imgefile}" alt="Recipe Image" style="width:100px;height:auto;">
+    <h3 th:text="${recipe.recipeTitle}">제목 없음</h3>
+    <p th:text="${recipe.ingredients}">재료 없음</p>
+
   </div>
 </div>
 
-<!-- 한식모음 -->
-<div class="cont_group">
-  <div class="cont_title">
-    <h3>한식모음</h3>
-    <input type = "button" value="더보기">
-  </div>
-  <div class="cont_data">
-    <input type = "button" class="left_arrows" value="◀">
-    <div class="recipe_session">
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/8drgvI-cQLUfJDC00zbl2ZolK4W3o4ZkVSpR-zM5FZk_QzT58vYnx_7ohk0qwGYYiSLPiZgwccyIEFUtYKDjUQ.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-    </div>
-    <input type = "button" class="right_arrows" value="▶">
-  </div>
-</div>
-
-<!-- 양식모음 -->
-<div class="cont_group">
-  <div class="cont_title">
-    <h3>양식모음</h3>
-    <input type = "button" value="더보기">
-  </div>
-  <div class="cont_data">
-    <input type = "button" class="left_arrows" value="◀">
-    <div class="recipe_session">
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://i.namu.wiki/i/ZjPcoAhi7qU-bg7Ie_DkX-RUO7p4lAT8-1UyCiEHfaC6sczF-oq7JbdwwfBxscwJEMlq07kkltp9F6Jr9oTZfw.webp">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-    </div>
-    <input type = "button" class="right_arrows" value="▶">
-  </div>
-</div>
-
-<!-- 일식모음 -->
-<div class="cont_group">
-  <div class="cont_title">
-    <h3>일식모음</h3>
-    <input type = "button" value="더보기">
-  </div>
-  <div class="cont_data">
-    <input type = "button" class="left_arrows" value="◀">
-    <div class="recipe_session">
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-      <div class="recipe_box">
-        <a href="#">
-          <img class="foodImg" src="https://gurunavi.com/ko/japanfoodie/article/sushi/img/sushi_01.jpg">
-        </a>
-        <p class="recipe_title">탱글탱글 계란찜 탱글탱글 계란찜 탱글탱글 계란찜</p>
-      </div>
-    </div>
-    <input type = "button" class="right_arrows" value="▶">
-  </div>
-</div>
 
 <div id="footer"></div>
+
 </body>
 </html>
