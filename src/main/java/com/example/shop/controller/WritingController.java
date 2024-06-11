@@ -28,14 +28,15 @@ public class WritingController {
     @PostMapping("/writing/save")
     public String writingSave(@ModelAttribute Recipes recipes,
                               @RequestParam("imageFile") MultipartFile imageFile,
-                              @RequestParam("gastronomy") List<String> gastronomy) {
+                              @RequestParam("gastronomy") List<String> gastronomy,
+                              Model model) {
         // 요리법을 엔티티에 설정
         recipes.setGastronomy(gastronomy);
 
         if (!imageFile.isEmpty()) {
             try {
-                // 파일을 저장할 절대 경로 설정
-                String uploadDirectory = "/uploads/";
+                // 프로젝트의 static 폴더 하위에 uploads 폴더 경로 설정
+                String uploadDirectory = new File("src/main/resources/static/uploads").getAbsolutePath();
                 File directory = new File(uploadDirectory);
                 if (!directory.exists()) {
                     directory.mkdirs(); // 디렉토리 생성
@@ -48,13 +49,19 @@ public class WritingController {
                 // 파일 저장
                 Files.write(filePath, imageFile.getBytes());
 
-                // 파일 경로를 엔티티에 설정
-                recipes.setImgefile(filePath.toString());
+                // DB에 저장할 파일 경로 설정 (웹 브라우저에서 접근 가능한 경로로 설정)
+                String dbFilePath = "/uploads/" + fileName;
+                recipes.setImgefile(dbFilePath);
                 recipes.setImgename(fileName);
 
             } catch (IOException e) {
                 e.printStackTrace();
+                model.addAttribute("errorMessage", "파일 업로드 중 오류가 발생했습니다.");
+                return "writing"; // 에러 발생 시 다시 작성 페이지로 이동
             }
+        } else {
+            model.addAttribute("errorMessage", "이미지 파일을 선택해 주세요.");
+            return "writing"; // 이미지 파일이 비어 있을 경우 다시 작성 페이지로 이동
         }
 
         recipesRepository.save(recipes);
@@ -65,7 +72,7 @@ public class WritingController {
     public String showAddRecipeForm(Model model) {
         model.addAttribute("recipes", new Recipes());
         // 이미지 파일 경로를 가져와서 모델에 추가
-        model.addAttribute("imagePath", "uploads/default.jpg"); // 기본 이미지 경로 설정 (없는 경우에 대비)
+        model.addAttribute("imagePath", "/uploads/default.jpg"); // 기본 이미지 경로 설정 (없는 경우에 대비)
         return "writing";
     }
 }
