@@ -72,8 +72,9 @@ nav > ul > li > a {
 
 /* content css*/
 body{
-       background-color: #f1f1f2;
-   }
+   background-color: #f1f1f2;
+}
+
 .cont_group{
    background-color: #fff;
    margin: 20px auto;

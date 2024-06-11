@@ -6,17 +6,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-
     @GetMapping("/")
-    public String Home(Model model) {
+    public String index(Model model){
         return "index";
     }
+
     @GetMapping("/header")
-   public String Header(Model model) {
-       return "header";
-   }
+    public String header(Model model){
+        return "header";
+    }
+
     @GetMapping("/footer")
-    public String footer(Model model) {
-       return "footer";
-   }
+    public String footer(Model model){
+        return "footer";
+    }
+
+    @GetMapping("/catelist")
+    public String catelist(Model model){
+        return "catelist";
+    }
+
+
+
 }
