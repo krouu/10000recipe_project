@@ -17,6 +17,7 @@ public class PersonController {
     @GetMapping("/users/add")
     public String showAddPersonForm(Model model) {
         model.addAttribute("person", new Person());
+
         return "personForm";
     }
 
