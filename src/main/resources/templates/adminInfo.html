@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리</title>
+    <link rel="stylesheet" href="/css/adminInfo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/adminInfo.js"></script>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="nav-left">
+            <button class="logoBtn" onclick="window.location.href='/adminHome'">
+                <img src="https://recipe1.ezmember.co.kr/img/logo4.png" alt="Logo">
+            </button>
+        </div>
+        <div class="nav-right">
+            <button class="logout" onclick="window.location.href='/logout'">로그아웃</button>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <h2>회원 관리 페이지</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>이름</th>
+                <th>아이디</th>
+                <th>이메일</th>
+                <th>전화번호</th>
+                <th>회원관리</th>
+            </tr>
+            </thead>
+            <tbody id="memberTableBody">
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>
