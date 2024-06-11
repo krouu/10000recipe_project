@@ -1,0 +1,38 @@
+/* index.css */
+
+/* 제목 스타일 */
+#header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+/* 입력란 스타일 */
+input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+/* 이미지 스타일 */
+img {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
