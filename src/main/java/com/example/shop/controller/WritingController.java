@@ -1,12 +1,15 @@
 package com.example.shop.controller;
 
 import com.example.shop.database.Recipes;
+import com.example.shop.database.Users;
 import com.example.shop.repository.RecipesRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -29,9 +32,13 @@ public class WritingController {
     public String writingSave(@ModelAttribute Recipes recipes,
                               @RequestParam("imageFile") MultipartFile imageFile,
                               @RequestParam("gastronomy") List<String> gastronomy,
+                              HttpSession session,
                               Model model) {
-        // 요리법을 엔티티에 설정
-        recipes.setGastronomy(gastronomy);
+        // 로그인된 사용자 확인
+        Users loggedInUser = (Users) session.getAttribute("loggedInUser");
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
 
         if (!imageFile.isEmpty()) {
             try {
@@ -69,7 +76,13 @@ public class WritingController {
     }
 
     @GetMapping("/writing")
-    public String showAddRecipeForm(Model model) {
+    public String showAddRecipeForm(HttpSession session, Model model) {
+        // 로그인된 사용자 확인
+        Users loggedInUser = (Users) session.getAttribute("loggedInUser");
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
+
         model.addAttribute("recipes", new Recipes());
         // 이미지 파일 경로를 가져와서 모델에 추가
         model.addAttribute("imagePath", "/uploads/default.jpg"); // 기본 이미지 경로 설정 (없는 경우에 대비)
