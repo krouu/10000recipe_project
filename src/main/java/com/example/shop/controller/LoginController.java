@@ -95,7 +95,7 @@ public class LoginController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate();
+        session.invalidate(); //세션초기화
         return "redirect:/";
     }
 

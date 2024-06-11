@@ -1,11 +1,8 @@
 package com.example.shop.database;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Table(name = "recipes")
@@ -26,9 +23,8 @@ public class Recipes {
     @Column(length = 255)
     private String ingredients; // 재료
 
-    @ElementCollection
     @Column(columnDefinition = "TEXT")
-    private List<String> gastronomy; // 요리법 요리순서
+    private String gastronomy; // 요리법 요리순서
 
     @Column(length = 255)
     private String imgename;
@@ -36,4 +32,7 @@ public class Recipes {
     @Column(length = 255)
     private String imgefile; // 이 필드를 이미지 파일 경로로 사용
 
+    @ManyToOne
+    @JoinColumn(name = "NO")
+    private Users user;
 }

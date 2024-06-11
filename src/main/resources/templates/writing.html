@@ -27,14 +27,17 @@
         <label for="recipeTitle">제목:</label>
         <input type="text" id="recipeTitle" th:field="*{recipeTitle}" />
     </div>
+
     <div>
         <label for="ingredients">재료:</label>
         <input type="text" id="ingredients" th:field="*{ingredients}" />
     </div>
+
     <div>
         <label for="category">카테고리:</label>
         <input type="text" id="category" th:field="*{category}" />
     </div>
+
     <div id="gastronomies">
         <label for="gastronomy">요리법:</label>
         <input type="text" class="gastronomy-input" id="gastronomy" name="gastronomy" th:field="*{gastronomy}" />
@@ -43,6 +46,7 @@
     <div>
         <button type="button" id="addGastronomy">요리법 추가</button>
     </div>
+
     <div>
         <label for="imageFile">이미지:</label>
         <input type="file" id="imageFile" name="imageFile" />
