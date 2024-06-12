@@ -11,33 +11,33 @@
 </head>
 <body>
 
-  <div id="header"></div>
+<div id="header"></div>
 
-  <div id="recipes-container">
-    <div class="cont_title">
-      <h3>핵꿀팁 만개의 BEST 요리모음</h3>
-      <input type = "button" value="더보기">
-    </div>
-    <div class="cont_content">
-      <input type="button" value="◀">
-      <div class="recipe">
-        <div th:each="recipe : ${recipes}">
-          <a href="recipe/${recipes.recipeID}">
-            <img th:src="${recipe.imgefile}" alt="Recipe Image" class="container_img">
-            <h3 th:text="${recipe.recipeTitle}">제목 없음</h3>
-          </a>
-        </div>
+<div id="recipes-container">
+  <div class="cont_title">
+    <h3>핵꿀팁 만개의 BEST 요리모음</h3>
+    <input type = "button" value="더보기">
+  </div>
+  <div class="cont_content">
+    <input type="button" value="◀">
+    <div class="recipe">
+      <div th:each="recipe : ${recipes}">
+        <a href="recipe/${recipes.recipeID}">
+          <img th:src="${recipe.imgefile}" alt="Recipe Image" class="container_img">
+          <h3 th:text="${recipe.recipeTitle}">제목 없음</h3>
+        </a>
       </div>
-      <input type="button" value="▶">
     </div>
+    <input type="button" value="▶">
   </div>
+</div>
 
-  <div class="recipes_container">
+<div class="recipes_container">
 
-  </div>
+</div>
 
 
-  <div id="footer"></div>
+<div id="footer"></div>
 
 </body>
 </html>

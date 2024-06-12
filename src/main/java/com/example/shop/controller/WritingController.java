@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,7 +30,6 @@ public class WritingController {
     @PostMapping("/writing/save")
     public String writingSave(@ModelAttribute Recipes recipes,
                               @RequestParam("imageFile") MultipartFile imageFile,
-                              @RequestParam("gastronomy") List<String> gastronomy,
                               HttpSession session,
                               Model model) {
         // 로그인된 사용자 확인
@@ -71,6 +69,7 @@ public class WritingController {
             return "writing"; // 이미지 파일이 비어 있을 경우 다시 작성 페이지로 이동
         }
 
+        recipes.setUser(loggedInUser);
         recipesRepository.save(recipes);
         return "redirect:/";
     }
