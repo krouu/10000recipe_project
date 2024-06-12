@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사용자 정보</title>
     <link rel="stylesheet" href="/css/userInfo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -22,7 +23,7 @@
 <main>
     <div class="container">
         <h2>사용자 정보 페이지</h2>
-        <table>
+        <table id="userInfo">
             <thead>
             <tr>
                 <th>이름</th>
@@ -33,14 +34,90 @@
             </thead>
             <tbody>
             <tr>
-                <td th:text="${loggedInUser.username}"></td>
-                <td th:text="${loggedInUser.userID}"></td>
-                <td th:text="${loggedInUser.email}"></td>
-                <td th:text="${loggedInUser.phoneNumber}"></td>
+                <td id="username"></td>
+                <td id="userID"></td>
+                <td id="email"></td>
+                <td id="phoneNumber"></td>
             </tr>
+            </tbody>
+        </table>
+        <h3>내가 작성한 레시피</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>레시피 제목</th>
+                <th>카테고리</th>
+                <th>재료</th>
+                <th>요리법</th>
+                <th>이미지</th>
+                <th>삭제</th>
+            </tr>
+            </thead>
+            <tbody id="recipeList">
             </tbody>
         </table>
     </div>
 </main>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/api/user/info',
+            method: 'GET',
+            success: function(data) {
+                // 사용자 정보 표시
+                $('#username').text(data.username);
+                $('#userID').text(data.userID);
+                $('#email').text(data.email);
+                $('#phoneNumber').text(data.phoneNumber);
+
+                // 레시피 목록 표시
+                let recipeList = $('#recipeList');
+                data.recipes.forEach(function(recipe) {
+                    let row = `
+                        <tr class="recipe-row" data-recipe-id="${recipe.recipeID}">
+                            <td>${recipe.recipeTitle}</td>
+                            <td>${recipe.category}</td>
+                            <td>${recipe.ingredients}</td>
+                            <td>${recipe.gastronomy}</td>
+                            <td><img src="${recipe.imgefile}" alt="레시피 이미지" style="width: 100px; height: auto;"></td>
+                            <td><button class="delete-btn">삭제</button></td>
+                        </tr>
+                    `;
+                    recipeList.append(row);
+                });
+
+                // 레시피 클릭 이벤트 처리
+                $('.recipe-row').click(function() {
+                    const recipeID = $(this).data('recipe-id');
+                    window.location.href = `/recipe/${recipeID}`;
+                });
+
+                // 삭제 버튼 클릭 이벤트 처리
+                $('.delete-btn').click(function(event) {
+                    event.stopPropagation(); // 상위 tr 클릭 이벤트가 발생하지 않도록 방지
+                    const recipeID = $(this).closest('.recipe-row').data('recipe-id');
+                    if (confirm('정말 이 레시피를 삭제하시겠습니까?')) {
+                        $.ajax({
+                            url: `/api/recipe/${recipeID}`,
+                            method: 'DELETE',
+                            success: function() {
+                                alert('레시피가 삭제되었습니다.');
+                                location.reload(); // 페이지 새로고침
+                            },
+                            error: function(error) {
+                                console.error('Error deleting recipe:', error);
+                                alert('레시피 삭제 중 오류가 발생했습니다.');
+                            }
+                        });
+                    }
+                });
+            },
+            error: function(error) {
+                console.error('Error fetching user info:', error);
+            }
+        });
+    });
+</script>
 </body>
 </html>
